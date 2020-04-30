@@ -4,23 +4,38 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Welcome/>
+      <p>Contents</p>
+      <Warning/>
     </div>
   );
+}
+
+function Welcome(){
+  return (
+    <Notification status="success">
+      <h1>Welcome</h1>
+      <p>Congratulations</p>
+    </Notification>
+  )
+}
+
+function Warning(){
+  return (
+    <Notification status="warning">
+      <p>Don't forget to pay your Invoice</p>
+    </Notification>
+  )
+}
+
+function Notification(props){
+  return (
+    // <div className="notification">
+    <div className={'notification is-'+props.status}>
+      {props.children}
+    </div>
+  )
 }
 
 export default App;
