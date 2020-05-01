@@ -47,8 +47,14 @@ const MyContext = React.createContext();
 
 function App() {
 
+  let state = {
+    color: 'black',
+    info : 'warning'
+  }
+
   return (
-    <MyContext.Provider value="blue">
+    // <MyContext.Provider value="blue">
+    <MyContext.Provider value={state}>
       <header>
         <Navigation color="red"/>
       </header>
@@ -72,7 +78,8 @@ function Button(){
   return (
     <MyContext.Consumer>
       {(context) => (
-        <button>Color we get is {context}</button>
+        // <button>Color we get is {context}</button>
+        <button>Color we get is {context.color}</button>
       )}
     </MyContext.Consumer>
   )
